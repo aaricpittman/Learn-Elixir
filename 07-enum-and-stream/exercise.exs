@@ -10,7 +10,7 @@ defmodule Lesson7 do
 
   def get_ds do
     get_words_starting_with("D")
-    |> Enum.sort(&is_longer/2)
+    |> Enum.sort_by(&String.length/1)
   end
 
   def get_words_starting_with(start) do
@@ -22,6 +22,4 @@ defmodule Lesson7 do
     File.stream!("sample.txt", [], :line)
     |> Stream.map(&String.capitalize/1)
   end
-
-  def is_longer(x, y), do: (String.length(x) > String.length(y))
 end
